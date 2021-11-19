@@ -1,0 +1,23 @@
+que_qaru02,245,294,6	script	 Sala PVP	403,{
+
+//Configuracoes:
+set .server$,"EarthRO";
+
+mes "[ ^0000FFMercado negro^000000 ]";
+mes " Olá";
+mes "Você deseja ir a Sala PVP?";
+if(select("Sim:Não")==2) {
+
+mes "Volte quando Quiser então";
+Close;
+}
+mes " Tudo Bem, Vou te levar até lá";
+next;
+warp "bat_c01",0,0;
+close;
+Oninit:
+waitingroom "[Sala PVP]",0;
+}
+
+bat_c01	mapflag	nosave	SavePoint
+bat_c01	mapflag	pvp

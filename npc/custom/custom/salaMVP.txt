@@ -1,0 +1,65 @@
+thana_boss,142,231,4	script	.	111,{
+	
+	OnKill:
+        sleep 1;
+		
+    OnInit:
+		setarray .mvp_ID[0], 1150, 1086, 1115, 1147, 1159, 1583, 1252, 1059, 1492, 1251, 1046, 1630, 1885, 1389, 1312, 1112, 1038, 1157, 1688, 1087, 1373, 2068, 1039, 1623, 1511, 1685, 1272, 1190, 1418, 1785, 1719, 1734, 1708, 1768, 2022, 1779, 1871, 1751, 1874, 1832, 1917;
+		.@seed = rand(0,100);
+
+		if(.@seed >= 86){
+			.@r = rand( 37, 40 );
+			announce "O MVP --"+ strmobinfo( 1,.mvp_ID[.@r]) +"-- foi invocado na Sala MVP", bc_all;
+		}else{
+			if(.@seed <= 20){
+				.@r = rand( 0, 21 );
+			}else if(.@seed >= 21 && .@seed <= 45){
+				.@r = rand( 22, 28 );			
+			}else if(.@seed >= 46 && .@seed == 65){
+				.@r = rand( 29, 32);			
+			}else if(.@seed >= 66 && .@seed <= 85){
+				.@r = rand( 33, 36);
+			}
+			//announce "O MVP --"+ strmobinfo( 1,.mvp_ID[.@r]) +"-- foi invocado", bc_all;
+		}
+		
+		monster "thana_boss",0,0,"--ja--",.mvp_ID[.@r],1,strnpcinfo(1)+"::OnKill";
+        end;
+		
+}
+
+
+que_qaru02,243,287,6	script	Sala MVP	737,{
+
+mes "[ ^0000FFSala MVP^000000 ]";
+mes "Gostaria de entrar na Sala MVP?";
+if(select("Sim:Não")==2) {
+
+mes "Volte quando Quiser então";
+Close;
+}
+mes " Tudo Bem, Vou te levar até lá";
+next;
+warp "thana_boss",0,0;
+close;
+Oninit:
+waitingroom "[SALA MVP]",0;
+}
+
+thana_boss,135,128,4	script	Retornar#salamvp	852,{
+
+mes "[ ^0000FFRetorno^000000 ]";
+mes " Deseja Voltar?";
+if(select("Sim:Não")==2) {
+
+mes "Volte quando Quiser então";
+Close;
+}
+mes " Tudo Bem, Vou te levar até lá";
+next;
+warp "que_qaru02",252,284;
+close;
+Oninit:
+waitingroom "[Saida]",0;
+
+}

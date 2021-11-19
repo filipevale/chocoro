@@ -1,0 +1,49 @@
+//===== Cronus Script ========================================
+//= Resetadora
+//===== Por: =================================================
+//= Mehah
+//===== Versão Atual: ========================================
+//= 2.2
+//===== Descrição: ===========================================
+//= Reseta os pontos de Habilidades e Atributos do personagem
+//===== Changelog: ===========================================
+//= 1.0 Script inicial [Mehah]
+//= 2.0 Otimizado e trocado variáveis pelas do npc_athena.conf [RoM]
+//= 2.1 Removidas as variáveis do npc_athena.conf (ele não existe mais). [RoM]
+//= 2.1a Removido show [Keoy]
+//= 2.2 Otimizado script [Mara]
+//============================================================
+
+que_qaru02,257,343,4	script	Resetadora	72,{
+
+//===== Configurações: =======================================
+set .@atrib, 0;	// Reset de Atributos
+set .@habil, 0;	// Reset de Habilidades
+set .@ambos, 0;	// Reset de Ambos
+//============================================================
+
+	mes "[^F08080Resetadora^000000]";
+	mes "Olá, posso resetar seus pontos.";
+	mes "Qual você deseja resetar?";
+	next;
+	if (select ("Resetar Atributos ["+.@atrib+"z]:Resetar Habilidades ["+.@habil+"z]:Resetar Ambos ["+.@ambos+"z]:Cancelar") == 4) close;
+	mes "[^F08080Resetadora^000000]";
+	if (@menu == 1) callsub F_Reset, .@atrib, 1, 0;
+	if (@menu == 2) callsub F_Reset, .@habil, 0, 1;
+	if (@menu == 3) callsub F_Reset, .@ambos, 1, 1;
+	mes "Pronto, resetado. Fale comigo mais vezes se precisar!";
+	close;
+
+	F_Reset:
+		if (Zeny < getarg(0))
+		{
+			mes "Me desculpe, mas você não possui o Zeny necessário.";
+			close;
+		}
+		set Zeny, Zeny - getarg(0);
+		if (getarg(1)) resetstatus;
+		if (getarg(2)) resetskill;
+	return;
+Oninit:
+waitingroom "[Resetadora]",0;
+}

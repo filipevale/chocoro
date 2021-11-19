@@ -1,0 +1,75 @@
+que_qaru02,261,337,3	script	Kafra#cima	894,{
+
+mes "[^FF8000Kafra^000000]";
+mes "Olá, ^0000CD"+strcharinfo(0)+"^000000 Estou aqui para servi-lo! Por favor selecione um serviço.";
+menu "- Salvar.",-,"- Armazem.",storage,"- Nada Obrigado.",nao;
+next;
+M_Save:
+	savepoint "que_qaru02",252,335;
+	callfunc "F_KafEnd",0,1,"";
+	
+storage:
+next;
+;
+close;
+end;
+
+woe:
+next;
+mes "[^FF8000Kafra Express^000000]";
+mes "Por favor ^0000CD"+strcharinfo(0)+"^000000 selecione o castelo:";
+menu "-Kriemhild.",-,"-Brynhildr.",bry,"-Hrist",hri,"-Gondul.",gon,"-Skoegul",sko,"Nenhum, obrigado.",nao;
+
+//Kiremhild
+
+next;
+mes "[^FF8000Kafra Express^000000]";
+mes "Boa viagem!";
+warp "prt_gld",135,64;
+end;
+
+//Brynhildr
+
+bry:
+next;
+next;
+mes "[^FF8000Kafra Express^000000]";;
+mes "Boa viagem!";
+warp "prt_gld",153,136;
+end;
+
+//Hrist
+
+hri:
+next;
+mes "[^FF8000Kafra Express^000000]";
+mes "Boa viagem!";
+warp "prt_gld",240,129;
+end;
+
+//Gondul
+
+gon:
+next;
+mes "[^FF8000Kafra Express^000000]";
+mes "Boa viagem!";
+warp "prt_gld",198,239;
+end;
+
+//Skoegul
+
+sko:
+next;
+mes "[^FF8000Kafra Express^000000]";
+mes "Boa viagem!";
+warp "prt_gld",121,240;
+end;
+
+nao:
+next;
+mes "[^FF8000Kafra Express^000000]";
+mes "Tudo bem, volte quando quiser!";
+close;
+Oninit:
+waitingroom "[Kafra]",0;
+}

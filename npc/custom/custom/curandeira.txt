@@ -1,0 +1,49 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////||
+//    DIREITOS DO SCRIPT RESERVADO A HaKaZoOr            ||       [ Descriçao do npc ]                                      ||
+//                                                       ||        Nome do npc:Buffer & Healer vip                          ||
+//                                                       ||        Função:Buff Vip                                          ||
+//              PESSO Q Ñ RETIRE OS CREDITOS             ||        Leitura Do NPC:é um npcs Feito para os vips              ||
+//                                                       ||        [Para Qual Tipo De Server]: Todos High,LOW e MID         ||
+//                                                       ||        Compatibilidade:Cronus Emulador                          ||
+//          POIS ASSIM TEREI PRAZER EM FAZER NPCS        ||        Função do npc:Buffs Vips                                 ||
+//                                                       ||        Qual mapa ele fica:Fica a Seu Criterio                   ||
+//            PARA TODOS VOCÊS                           ||                                                                 ||
+//                                                       ||                                                                 ||
+
+que_qaru02,254,346,5	script	[Cura] e [Buffs]	435,{
+OnTouch:
+if (getgmlevel()<0) goto naovip;
+
+skilleffect 34,0; sc_start SC_BLESSING,4221200,10;
+skilleffect 29,0; sc_start SC_INCREASEAGI,4221200,10;
+specialeffect2 338;
+specialeffect2 14;
+specialeffect2 236;
+percentheal 100,100;
+sc_end SC_Poison;
+sc_end SC_Silence;
+sc_end SC_Blind;
+sc_end SC_Confusion;
+sc_end SC_Curse;
+sc_end SC_Hallucination;
+atcommand "@repairall";
+
+if(vip_status(1)){
+	sc_start SC_STRFood,1200000,5;
+	sc_start SC_AGIFood,1200000,5;
+	sc_start SC_VITFood,1200000,5;
+	sc_start SC_INTFood,1200000,5;
+	sc_start SC_DEXFood,1200000,5;
+	sc_start SC_LUKFood,1200000,5;
+	skilleffect 33,0; sc_start SC_ANGELUS,4221200,10;
+	skilleffect 74,0; sc_start SC_MAGNIFICAT,4221200,5;
+	skilleffect 75,0; sc_start SC_GLORIA,4221200,5;
+	skilleffect 66,0; sc_start SC_IMPOSITIO,4221200,5;
+	//skilleffect 8,0; sc_start SC_ENDURE,360000,10;
+}
+end;
+Oninit:
+waitingroom "[Curandeira]",0;
+}
+
+que_qaru02,254,289,4	duplicate([Cura] e [Buffs])	[Cura] e [Buffs]#bx	435

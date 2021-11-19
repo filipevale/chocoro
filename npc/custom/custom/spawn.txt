@@ -1,0 +1,8 @@
+pvp_n_1-2,0,0	monster	Yoyo	1057,50
+pvp_n_1-2,0,0	monster	Harword	1636,1
+pvp_n_1-2,0,0	monster	Magaleta	1637,1
+pvp_n_1-2,0,0	monster	Cecil	1638,1
+pvp_n_1-2,0,0	monster	Katrinn	1639,1
+pvp_n_1-2,0,0	monster	Seyren	1634,1
+pvp_n_1-2,0,0	monster	Eremes	1635,1
+pvp_n_1-2,0,0	monster	Arqueiro Guardiao	1830,10

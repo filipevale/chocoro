@@ -1,0 +1,20 @@
+//===== Cronus Script ========================================
+//= Resetadora
+//===== Por: =================================================
+//= Mehah
+//===== Versão Atual: ========================================
+//= 2.2
+//===== Descrição: ===========================================
+//= Reseta os pontos de Habilidades e Atributos do personagem
+//===== Changelog: ===========================================
+//= 1.0 Script inicial [Mehah]
+//= 2.0 Otimizado e trocado variáveis pelas do npc_athena.conf [RoM]
+//= 2.1 Removidas as variáveis do npc_athena.conf (ele não existe mais). [RoM]
+//= 2.1a Removido show [Keoy]
+//= 2.2 Otimizado script [Mara]
+//============================================================
+
+que_qaru02,225,318,4	script	Mardol#placa	111,{
+	Oninit:
+	waitingroom "[Mardol]",0;
+}
